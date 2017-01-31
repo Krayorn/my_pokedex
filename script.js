@@ -7,7 +7,7 @@ window.onload = function(){
 
     var xhr = new XMLHttpRequest();
     var url = "pokemons.json";
-    var method = "POST";
+    var method = "GET";
 
     xhr.open(method, url, true);
     xhr.onreadystatechange = function () {

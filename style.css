@@ -11,7 +11,7 @@
     border: solid black 1px;
     border-radius: 20px 20px 0px 20px;
     vertical-align: bottom;
-    background-color: grey;
+    background-color: #bf404a;
 }
 #aside{
     margin-top: 200px;
@@ -20,31 +20,35 @@
     vertical-align: bottom;
     border: solid black 1px;
     border-radius: 0px 20px 20px 0px;
-    background-color: #DE2916;
+    background-color: #bf404a;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 #screen{
     margin: auto;
     height: 100px;
     width:80%;
-    background-color: #2E8B57;
+    background-color: #b8c2a5;
     border-radius: 20px;
     display: flex;
     justify-content: space-around;
-    box-shadow: -2px -2px 20px black inset;
+    box-shadow: 5px 5px 20px black inset;
+    margin-bottom: 10px;
 }
 #clavier{
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    height: 170px;
+    height: 100px;
     border-radius: 0px 0px 20px 0px;
 }
 .asidebutton{
-    height: 40px;
-    background-color: blue;
+    height: 35px;
+    background-color: #6b9dbe;
     width: 20%;
     margin: auto;
-    margin: 20px;
+    margin: 0px 20px;
     border-radius: 15px;
     box-shadow: 5px 5px 20px black;
 }
@@ -63,11 +67,45 @@
     height: 15px;
     width: 15px;
     border-radius: 15px;
-    background-color: #57D53B; 
+    background-color: #57D53B;
+    box-shadow: 5px 5px 20px black;
 }
-#img_area{
-    width: 350px;
-}
-img{
+.greendotreflect{
+    height: 3px;
+    width: 3px;
+    border-radius: 3px;
+    background-color: white;
     margin: auto;
+    margin-top: 9px;
+}
+#lines{
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+}
+#whitebuttons{
+    display: flex;
+    width: 40%
+}
+.whitebutton{
+    height: 35px;
+    background-color: white;
+    width: 30%;
+    margin: auto;
+    border-radius: 15px;
+    box-shadow: 5px 5px 20px black;
+}
+.whitebutton:hover{
+    box-shadow: 1px 1px 1px black;
+}
+#colors{
+    display: flex;
+    width: 40%;
+    justify-content: space-around;
+}
+.color{
+    height: 6px;
+    width: 40%;
+    border-radius: 5px;
+    background: linear-gradient(to right, #57D53B, red);
 }
