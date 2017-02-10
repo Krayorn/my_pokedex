@@ -1,3 +1,6 @@
+.radio{
+    display: none;
+}
 #pokedex{
     width: 90%;
     height: 600px;
@@ -213,11 +216,4 @@ img{
     margin: auto;
     border-right:5px solid black;
     margin-top: 4px;
-}
-.blackCircle{
-    width: 20px;
-    height: 20px;
-    border-radius: 20px;
-    background-color: lightslategrey;
-    margin: auto;
 }

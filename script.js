@@ -3,7 +3,6 @@ window.onload = function(){
     var pokemonImage = document.querySelector('#img_area');
     var pokemonName = document.querySelector('#name_area');
     var pokemonType = document.querySelector('#type_area');
-    var errArea = document.querySelector('#err_area');
 
     var xhr = new XMLHttpRequest();
     var url = "pokemons.json";
@@ -19,28 +18,49 @@ window.onload = function(){
 
     form.onsubmit = function(){
         var test = false;
-        errArea.innerHTML = "";
         var pokeName = document.querySelector('#name').value.toLowerCase();
-        for(i in allPokemon){
-            if (allPokemon[i].name.toLowerCase() == pokeName || i == pokeName){
-                test = true;
-                pokemonName.innerHTML = "Name : " + allPokemon[i].name;
-                pokemonType.innerHTML = "Type : " + allPokemon[i].type;
-                // need the three replace for Farfetch'dn Nidoran and Mr. mime (names don't match in pokemondb)
-                var pokeNameCleaned = allPokemon[i].name.replace(". ","-").replace("'","").replace("Nidoran","nidoran-m").toLowerCase(); 
-                pokemonImage.innerHTML = '<img src="http://img.pokemondb.net/artwork/' + pokeNameCleaned + '.jpg"/>';
+        var radio = document.querySelectorAll('.radio');
+        if (pokeName == 'nidoran'){
+            for(i = 0; i < radio.length; i++){
+                radio[i].style.display = 'inline';
+            }
+            document.querySelector('#nidoButton').onclick = function(){
+                if(document.querySelector('#nidoranM').checked){
+                    pokemonName.innerHTML = "Name : Nidoran Male";
+                    pokemonImage.innerHTML = '<img src="http://img.pokemondb.net/artwork/nidoran-m.jpg"/>';
+                }
+                else{
+                    pokemonImage.innerHTML = '<img src="http://img.pokemondb.net/artwork/nidoran-f.jpg"/>';
+                    pokemonName.innerHTML = "Name : Nidoran Femelle";
+                } 
+                pokemonType.innerHTML = "Type : poison";
             }
         }
-        if (test == false){
-            if (isNaN(pokeName)){
-                errArea.innerHTML = pokeName+' not found';
+        else{
+            for(i = 0; i < radio.length; i++){
+                radio[i].style.display = 'none';
+            }  
+            for(i in allPokemon){
+                if (allPokemon[i].name.toLowerCase() == pokeName || i == pokeName){
+                    test = true;
+                    pokemonName.innerHTML = "Name : " + allPokemon[i].name;
+                    pokemonType.innerHTML = "Type : " + allPokemon[i].type;
+                    // need the three replace for Farfetch'dn  and Mr. mime (names don't match in pokemondb)           
+                    var NameClean=allPokemon[i].name.replace(". ","-").replace("'","").toLowerCase();
+                    var finalname=(pokeName==32)?NameClean.replace("nidoran", "nidoran-m"):NameClean.replace("nidoran", "nidoran-f");
+                    pokemonImage.innerHTML = '<img src="http://img.pokemondb.net/artwork/' + finalname + '.jpg"/>';
+                }
             }
-            else{
-                errArea.innerHTML = 'Pokémon number '+pokeName+' not found';
+            if (test == false){
+                if (isNaN(pokeName)){
+                    pokemonName.innerHTML = pokeName+' not found';
+                }
+                else{
+                    pokemonName.innerHTML = 'Pokémon number '+pokeName+' not found';
+                }
+                pokemonType.innerHTML = "";
+                pokemonImage.innerHTML = '<img src="http://cdn.bulbagarden.net/upload/0/0d/201Unown_Question_Dream.png"/>';
             }
-            pokemonName.innerHTML = "Name :";
-            pokemonType.innerHTML = "Type :";
-            pokemonImage.innerHTML = "";
         }
         return false;
     }

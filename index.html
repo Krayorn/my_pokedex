@@ -9,10 +9,12 @@
     </head>
     <body>
         <form id="my_form">
-            <input type="text" name="name" id="name">
-            <input type="submit" name="pokesearch" value="Search Pokémon">
+            <input type="text" name="name" id="name"><br>
+            <label for="nidoranM" class="radio">Nidoran male</label><input id="nidoranM" checked class="radio" type="radio" name="nidoran" value="m">
+            <label for="nidoranF" class="radio">Nidoran femelle</label><input id="nidoranF" class="radio" type="radio" name="nidoran" value="f">
+            <input type="submit" id="nidoButton" class="radio" value="Envoyer">
+            <br><input type="submit" name="pokesearch" value="Search Pokémon">
         </form>
-        <div id="err_area"></div>
         <div id="pokedex">
             <div id="telbg">
                 <div id="dot">
@@ -43,7 +45,7 @@
                         </div>
                         <div class="directorlines">
                             <div class="directorsquare black"><div class="arrow-left"></div></div>
-                            <div class="directorsquare black"><div class="blackCircle"></div></div>
+                            <div class="directorsquare black"></div>
                             <div class="directorsquare black"><div class="arrow-right"></div></div>
                         </div>
                         <div class="directorlines">
