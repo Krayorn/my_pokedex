@@ -20,16 +20,14 @@ window.onload = function(){
     form.onsubmit = function(){
         var test = false;
         errArea.innerHTML = "";
-        var input = document.querySelector('#name').value;
-        var maj = input.charAt(0).toUpperCase();
-        var pokeName = maj + input.substring(1);
+        var pokeName = document.querySelector('#name').value.toLowerCase();
         for(i in allPokemon){
-            if (allPokemon[i].name == pokeName || i == pokeName){
+            if (allPokemon[i].name.toLowerCase() == pokeName || i == pokeName){
                 test = true;
                 pokemonName.innerHTML = "Name : " + allPokemon[i].name;
                 pokemonType.innerHTML = "Type : " + allPokemon[i].type;
-                // need the two replace for Farfetch'd and Mr. mime (names don't match in pokemondb)
-                var pokeNameCleaned = allPokemon[i].name.replace(". ","-").replace("\'","").toLowerCase(); 
+                // need the three replace for Farfetch'dn Nidoran and Mr. mime (names don't match in pokemondb)
+                var pokeNameCleaned = allPokemon[i].name.replace(". ","-").replace("'","").replace("Nidoran","nidoran-m").toLowerCase(); 
                 pokemonImage.innerHTML = '<img src="http://img.pokemondb.net/artwork/' + pokeNameCleaned + '.jpg"/>';
             }
         }
